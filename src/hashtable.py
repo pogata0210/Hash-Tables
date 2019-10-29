@@ -23,6 +23,7 @@ class HashTable:
 
         You may replace the Python hash with DJB2 as a stretch goal.
         '''
+    
         return hash(key)
 
 
@@ -32,6 +33,7 @@ class HashTable:
 
         OPTIONAL STRETCH: Research and implement DJB2
         '''
+        
         pass
 
 
@@ -51,7 +53,14 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        val = self.get.value(key)
+        if self.capacity[val] == None:
+            self.capacity[val] = key
+        else:
+            if type(self.capacity[val]) == list;:
+                self.capacity[val].append(key)
+            else:
+                self.capacity[val] = [self.capacity[val], key]
 
 
 
@@ -63,8 +72,16 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
 
+        val = self.get_value(key)
+        if self.capacity[val] != None:
+            if type(self.capacity[val]) == list:
+                i = self.capacity[val].index(key)
+                self.capacity[val][i] = None
+            else:
+                self.capacity[val] = None
+        else:
+            KeyError()
 
     def retrieve(self, key):
         '''
