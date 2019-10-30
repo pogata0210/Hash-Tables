@@ -122,6 +122,10 @@ class HashTable:
 
 
 
+
+
+
+pass
 if __name__ == "__main__":
     ht = HashTable(2)
 
